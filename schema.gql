@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Characteristics {
+  lifespan: String!
+  size: String!
+  coat: String!
+  color: String!
+}
+
+type CatType {
+  _id: String!
+  breed: String!
+  characteristics: Characteristics!
+}
+
+input CharacteristicsInput {
+  lifespan: String!
+  size: String!
+  coat: String!
+  color: String!
+}
+
+type Query {
+  cats: [CatType!]!
+}
+
+type Mutation {
+  createCat(input: CatInputType!): CatType!
+  updateCat(id: String!, input: CatInputType!): CatType!
+  deleteCat(id: String!): CatType!
+}
+
+input CatInputType {
+  breed: String!
+  characteristics: CharacteristicsInput!
+}
