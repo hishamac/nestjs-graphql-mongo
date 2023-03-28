@@ -27,6 +27,9 @@ export class CatType {
     
     @Field()
     characteristics: Characteristics;
+
+    @Field()
+    owner: string;
 }
 
 @InputType('CatInputType')
@@ -36,4 +39,7 @@ export class CatInputType {
 
     @Field()
     characteristics: Characteristics;
+
+    @Field()
+    owner: string;
 }

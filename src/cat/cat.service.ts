@@ -6,7 +6,7 @@ import { CatInputType, CatType } from './cat.dto';
 
 @Injectable()
 export class CatService {
-    constructor(@InjectModel(Cat.name) private catModel: Model<CatDocument>) {}
+    constructor(@InjectModel(Cat.name) private catModel: Model<Cat>) {}
 
     async findAll(): Promise<Cat[]> {
         return this.catModel.find().exec();

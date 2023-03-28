@@ -13,6 +13,13 @@ type CatType {
   _id: String!
   breed: String!
   characteristics: Characteristics!
+  owner: String!
+}
+
+type OwnerType {
+  _id: String!
+  name: String!
+  cats: [String!]!
 }
 
 input CharacteristicsInput {
@@ -24,15 +31,24 @@ input CharacteristicsInput {
 
 type Query {
   cats: [CatType!]!
+  owners: [OwnerType!]!
 }
 
 type Mutation {
   createCat(input: CatInputType!): CatType!
   updateCat(id: String!, input: CatInputType!): CatType!
   deleteCat(id: String!): CatType!
+  createOwner(input: OwnerInputType!): OwnerType!
+  updateOwner(id: String!, input: OwnerInputType!): OwnerType!
+  deleteOwner(id: String!): OwnerType!
 }
 
 input CatInputType {
   breed: String!
   characteristics: CharacteristicsInput!
+  owner: String!
+}
+
+input OwnerInputType {
+  name: String!
 }
