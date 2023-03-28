@@ -7,7 +7,7 @@ import { OwnerInputType } from './owner.dto';
 
 @Injectable()
 export class OwnerService {
-    constructor(@InjectModel(Owner.name) private ownerModel: Model<Owner>) {}
+    constructor(@InjectModel(Owner.name) private ownerModel: Model<OwnerDocument>) {}
 
     async findAll(): Promise<Owner[]> {
         return this.ownerModel.find().exec();

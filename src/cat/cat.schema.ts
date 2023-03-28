@@ -10,16 +10,17 @@ class Characteristics {
 }
 
 @Schema()
-export class Cat extends Document {
+export class Cat{
     @Prop()
     breed: string;
 
     @Prop()
     characteristics: Characteristics;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Owner' })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Owner'  })
     owner: Owner;
 }
+
 
 export type CatDocument = Cat & Document;
 export const CatSchema = SchemaFactory.createForClass(Cat);

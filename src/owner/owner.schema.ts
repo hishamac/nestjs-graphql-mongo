@@ -3,7 +3,7 @@ import mongoose, { Document, Types } from 'mongoose';
 import { Cat } from '../cat/cat.schema';
 
 @Schema()
-export class Owner extends Document {
+export class Owner{
     @Prop()
     name: string;
 

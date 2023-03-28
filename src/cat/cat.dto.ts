@@ -1,5 +1,6 @@
 import { ObjectType, Field, InputType } from "@nestjs/graphql";
 import mongoose from "mongoose";
+import { GraphQLJSONObject } from "graphql-type-json";
 
 @ObjectType('Characteristics')
 @InputType('CharacteristicsInput')
@@ -28,8 +29,8 @@ export class CatType {
     @Field()
     characteristics: Characteristics;
 
-    @Field()
-    owner: string;
+    @Field(type=>GraphQLJSONObject)
+    owner: object;
 }
 
 @InputType('CatInputType')

@@ -6,10 +6,10 @@ import { CatInputType, CatType } from './cat.dto';
 
 @Injectable()
 export class CatService {
-    constructor(@InjectModel(Cat.name) private catModel: Model<Cat>) {}
+    constructor(@InjectModel(Cat.name) private catModel: Model<CatDocument>) {}
 
     async findAll(): Promise<Cat[]> {
-        return this.catModel.find().exec();
+        return this.catModel.find().populate({ path: 'owner', select: 'name cats' }).exec();
     }
     async create(createCatDto: CatInputType): Promise<Cat> {
         const createdCat = new this.catModel(createCatDto);
