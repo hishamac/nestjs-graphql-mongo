@@ -10,7 +10,7 @@ export class OwnerService {
     constructor(@InjectModel(Owner.name) private ownerModel: Model<OwnerDocument>) {}
 
     async findAll(): Promise<Owner[]> {
-        return this.ownerModel.find().exec();
+        return this.ownerModel.find().populate({ path: 'cats', select: 'breed characteristics' }).exec();
     }
     async create(createOwnerDto: OwnerInputType): Promise<Owner> {
         const createdOwner = new this.ownerModel(createOwnerDto);

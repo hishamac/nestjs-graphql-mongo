@@ -7,7 +7,7 @@ export class Owner{
     @Prop()
     name: string;
 
-    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Cat' }] })
+    @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Cat' }])
     cats: Cat[];
 }
 

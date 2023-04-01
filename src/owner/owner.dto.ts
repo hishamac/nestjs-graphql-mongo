@@ -1,4 +1,6 @@
 import { ObjectType, Field, InputType } from "@nestjs/graphql";
+import { GraphQLJSONObject } from "graphql-type-json";
+
 
 @ObjectType('OwnerType')
 export class OwnerType {
@@ -8,8 +10,8 @@ export class OwnerType {
     @Field()
     name: string;
 
-    @Field(type=>[String])
-    cats:string[]
+    @Field(type=>[GraphQLJSONObject])
+    cats:object[]
 }
 
 @InputType('OwnerInputType')

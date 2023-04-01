@@ -24,7 +24,7 @@ scalar JSONObject
 type OwnerType {
   _id: String!
   name: String!
-  cats: [String!]!
+  cats: [JSONObject!]!
 }
 
 input CharacteristicsInput {
